@@ -1,0 +1,23 @@
+flowchart LR
+    Student[Student browser]
+    Teacher[Teacher browser]
+    Admin[Administrator browser]
+    Frontend[Next.js / React frontend]
+    API[FastAPI backend]
+    DB[(PostgreSQL)]
+    Cache[(Redis)]
+    Storage[(Uploaded files)]
+    Mail[Brevo email service]
+    ML[Planned prediction and recommendation module]
+
+    Student --> Frontend
+    Teacher --> Frontend
+    Admin --> Frontend
+    Frontend -->|REST API| API
+    API --> DB
+    API --> Cache
+    API --> Storage
+    API --> Mail
+    API -. assessment features and inference .-> ML
+    ML -. predictions and recommendations .-> API
+
